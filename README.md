@@ -1,29 +1,45 @@
-# README #
+## Cahier des charges
 
-This README would normally document whatever steps are necessary to get your application up and running.
+# EasyChat
 
-### What is this repository for? ###
+## 1 - Contexte et définition du problème :
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## La communication par internet permet l’échange des informations
 
-### How do I get set up? ###
+## entre les internautes sous des formats différents (textes, images),
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## Notre idée est de créer une application web de messagerie en temps
 
-### Contribution guidelines ###
+## réel.
 
-* Writing tests
-* Code review
-* Other guidelines
+## 2 Objectif du projet :
 
-### Who do I talk to? ###
+Cette application web permettra la communication entre les internautes
+d’une manière facile à utiliser.
 
-* Repo owner or admin
-* Other community or team contact
+## 3 - Périmètre :
+
+Nous nous concentrons à toutes les internautes.
+
+## 4 - Description fonctionnelle des besoins :
+
+## 4 - 1 Besoins fonctionnelle :
+
+Cette application web contient les fonctionnalités suivantes :
+
+- Compte utilisateur avec inscription/connexion
+*Email
+*Facebook
+*Google
+- Communiquer avec des autres utilisateurs
+*texte
+*images
+
+
+## 4 - 2 Besoins non fonctionnel :
+
+- la facilité d’utilisation
+- sécurité
+
+## 5. Identification des besoins technique
+
