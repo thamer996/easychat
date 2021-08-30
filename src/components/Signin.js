@@ -1,53 +1,35 @@
-import React, { useState, useEffect } from "react";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
-import firebase from "./firebaseConfig";
-import { Card } from 'semantic-ui-react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-
-
-
+import React from "react";
+import { GoogleOutlined, FacebookOutlined } from "@ant-design/icons";
+import firebase from "firebase/app";
+import { auth } from "../contexts/firebaseConfig";
 
 const Signin = () => {
-    const [isSignedIn, setIsSignedIn] = useState(false);
 
-    const uiConfig = {
-        signInFlow: "popup",
-        signInOptions: [
-            firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-            firebase.auth.EmailAuthProvider.PROVIDER_ID,
-        ],
-        callbacks: {
-            signInSuccess: () => false,
-        },
-    };
-
-    useEffect(() => {
-        firebase.auth().onAuthStateChanged((user) => {
-            // !! ensure boolean
-            setIsSignedIn(!!user);
-            console.log(user);
-        });
-    }, []);
-
-    return (
-        <div className="Signin" style={{ textAlign: 'center' }}>
-            {isSignedIn ? (
-                <Redirect to="/main" />
-
-            ) : (
-                <div className="login-page">
-                    <Card>
-                        <h1 style={{color: "Dark Grey"}}> welcome to Easychat <i class="comment alternate outline icon"></i></h1>
-                        <StyledFirebaseAuth
-                            uiConfig={uiConfig}
-                            firebaseAuth={firebase.auth()}
-                        />
-                    </Card>
-                </div>
-            )}
+  return (
+    <div id="login-page">
+      <div id="login-card">
+        <h2>Welcome To Easychat</h2>
+        
+        <div
+          className="login-button google"
+          onClick={() =>
+            auth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+          }
+        >
+          <GoogleOutlined />Sign in With Google
         </div>
-    );
+        <br /> <br />
+        <div
+          className="login-button facebook"
+          onClick={() =>
+            auth.signInWithRedirect(new firebase.auth.FacebookAuthProvider())
+          }
+        >
+          <FacebookOutlined /> Sign in With Facebook
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Signin;
