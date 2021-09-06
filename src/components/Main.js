@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { ChatEngine } from "react-chat-engine";
 import { useAuth } from "../contexts/Auth";
 import { auth } from "../contexts/firebaseConfig";
+import { UserOutlined } from "@ant-design/icons";
 
 export default function Main() {
   const didMountRef = useRef(false);
@@ -22,7 +23,9 @@ export default function Main() {
     return new File([data], "test.jpg", { type: "image/jpeg" });
   }
 
-
+  const goProfilePage = () => {
+    history.push("/profile");
+  };
   useEffect(() => {
     if (!didMountRef.current) {
       didMountRef.current = true;
@@ -53,8 +56,8 @@ export default function Main() {
             formdata.append("avatar", avatar, avatar.name);
 
             axios
-              .post("https://api.chatengine.io/users/", 
-              formdata, {
+              .post("https://api.chatengine.io/users/",
+                formdata, {
                 headers: {
                   "private-key": "e9ed94a0-7faa-48ef-8ffa-daf1c572ff76",
                 },
@@ -71,12 +74,16 @@ export default function Main() {
   return (
     <div className="chats-page">
       <div className="nav-bar">
-        <div className="logo-tab">Easychat</div>
+        <div className="logo-tab">
+          Easychat</div>
 
         <div onClick={handleLogout} className="logout-tab">
           Logout
         </div>
-        
+        <div onClick={goProfilePage} className="profile-section">
+          <UserOutlined /> Profile
+        </div>
+
       </div>
 
       <ChatEngine

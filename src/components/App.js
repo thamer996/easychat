@@ -6,6 +6,7 @@ import { AuthProvider } from "../contexts/Auth";
 
 import Main from "./Main";
 import Signin from "./Signin";
+import Profile from "./Profile";
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <Switch>
             <Route path="/main" component={Main} />
             <Route exact path="/" component={Signin} />
+            <Route path="/profile" component={Profile} />
           </Switch>
         </AuthProvider>
       </Router>
